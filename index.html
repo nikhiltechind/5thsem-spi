@@ -193,7 +193,7 @@ function init() {
         result.innerText = "Wrong Input!"
     }
 
-    // document.getElementById("myPlot").style.display="";
+     document.getElementById("myPlot").style.display="";
     // document.getElementById("myPlot2").style.display="";
     document.getElementById("R1").style.display="";
     document.getElementById("R2").style.display="";
@@ -246,45 +246,42 @@ var ExpC=(((110*cpAr[7])-sigma)/21).toFixed(3);
 sp9p5.innerText=ExpC>=5.5 && ExpC<=10?"Atleast "+ExpC+" spi for cpi >= 9.5":ExpC<5.5?"below 5.5 spi for cpi >= 9.5":"CPI 9.5 Not Possible";
  
 
-// // Define Data
-// var data = [{
-//   x: xArray,
-//   y: yArray,
-//   mode: 'lines',
- 
-//     line: {
-//       color: 'red'
-//     },
-  
-// }];
-// var data1 = [{
-//   x: xArray,
-//   y: ycArray,
-//   mode: 'lines',
- 
-    
-//     line: {
-//       color: 'blue'
-//     },
-  
-// }];
+var spiplot = {
+  x: [1, 2, 3, 4,5],
+  y: [sem1, sem2,sem3, sem4,spi5],
+  mode: 'lines+markers',
+  name: 'SPI',
+  marker: {
+    color: 'rgb(55, 128, 191)',
+    size: 8
+  },
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 1
+  }
+};
+var cpiplot = {
+  x: [1, 2, 3, 4,5],
+  y: [sem1, cpi2, cpi3, cpi4,cpi5],
+  mode: 'lines+markers',
+  name: 'CPI',
+  marker: {
+    color: 'rgb(219, 64, 82)',
+    size: 8
+  },
+  line: {
+    color: 'rgb(219, 64, 82)',
+    width: 1
+  }
+};
 
-// // Define Layout
-// var layout = {
-//   xaxis: {range: [0, 5], title: "SEMESTER"},
-//   yaxis: { title: "SPI"},  
-//   title: "SPI GRAPH"
-// };
-// var layout2 = {
- 
-//   xaxis: {range: [0, 5], title: "SEMESTER"},
-//   yaxis: { title: "CPI"},  
-//   title: "CPI GRAPH"
-// };
+var data = [spiplot, cpiplot];
 
-// // Display using Plotly
-// Plotly.newPlot("myPlot", data, layout,{displayModeBar: false});
-// Plotly.newPlot("myPlot2", data1, layout2,{displayModeBar: false});
+var layout = {
+  title: 'SPI - CPI GRAPH'
+};
+
+Plotly.newPlot('myPlot', data, layout,{displayModeBar: false});
 
  document.getElementById("ss").style.display="";
      document.getElementById("ssh").style.display="";
@@ -439,9 +436,9 @@ sp9p5.innerText=ExpC>=5.5 && ExpC<=10?"Atleast "+ExpC+" spi for cpi >= 9.5":ExpC
         
         <p id="R2" style="display: none;">CPI: &nbsp;</p><p class="res"> </p>
        <div class="container2">
-       <!-- <div id="myPlot" style="height:300px;max-width:350px; background-color: #06164b;display: none;"></div>
+        <div id="myPlot" style="height:300px;max-width:350px; background-color: #06164b;display: none;"></div>
        <br>
-       <div id="myPlot2" style="height:300px;max-width:350px; background-color: #06164b;display: none;"></div> -->
+      <!-- <div id="myPlot2" style="height:300px;max-width:350px; background-color: #06164b;display: none;"></div> -->
         </div>
         <br>
         <U><h1 id="ssh" style="display: none;">Expected SPI V/S CPI 5TH SEM</h1></U>
